@@ -1,10 +1,9 @@
 name: Test deployment
 
 on:
-  workflow_dispatch:
-  # pull_request:
-  #   branches:
-  #     - production
+  pull_request:
+    branches:
+      - production
 
 jobs:
   test-deploy:
