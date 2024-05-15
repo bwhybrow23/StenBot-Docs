@@ -8,12 +8,12 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'StenBot Documaintation',
+  title: 'StenBot',
   tagline: 'StenBot is a public multifunctional Discord bot that has features like moderation, ticketing and more!',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://wiki.benwhybrow.com',
+  url: 'https://stenbot.benwhybrow.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -36,6 +36,12 @@ const config = {
     locales: ['en'],
   },
 
+  // Plugins
+  plugins: [
+    'docusaurus-plugin-sass',
+    // require.resolve('docusaurus-lunr-search'),
+  ],
+
   presets: [
     [
       'classic',
@@ -43,20 +49,12 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.scss'],
         },
       }),
     ],
@@ -65,73 +63,80 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'StenBot',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'StenBot Icon',
+          src: 'img/logo.png',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'docSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentation',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/donate', label: 'Donate', position: 'left'},
+          {to: '/changelog', label: 'Changelog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/bwhybrow23",
+            position: "right",
+            className: "github-link"
+          },
+          {
+            href: "https://discord.benwhybrow.com",
+            position: "right",
+            className: "discord-link"
           },
         ],
       },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       footer: {
+        logo: {
+          src: "img/logo.png",
+          alt: "StenBot Logo",
+          height: "64px",
+          width: "64px"
+        },
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Useful Links',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Documentation',
+                to: '/docs',
+              },
+              {
+                label: 'Privacy Policy',
+                to: '/privacy',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Support',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
+                href: 'https://discord.benwhybrow.com',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/bwhybrow23/StenBot',
+              },
+              {
+                label: 'Website',
+                href: 'https://benwhybrow.com',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Ben Whybrow. All rights reserved. | Powered by Docusaurus`,
       },
       prism: {
         theme: prismThemes.github,
