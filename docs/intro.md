@@ -1,47 +1,40 @@
 ---
+id: home
 sidebar_position: 1
+title: Home Page
+description: StenBot Wiki
 ---
 
-# Tutorial Intro
+# Welcome to the StenBot Docs/Wiki!
+StenBot is a public multifunctional Discord bot that has features like moderation, ticketing and more! 
+This documentation provides information on each module/command, including the description, usage and examples. 
+If you need any additional help, ask in the [Discord Server!](https://discord.benwhybrow.com)
 
-Let's discover **Docusaurus in less than 5 minutes**.
+# Navigation
+On the side bar (to the left) you will see a lot of different pages. This includes a FAQ (Frequently Asked Questions), changelog, commands list and a list of all StenBot's features/modules. 
+## Commands
+The commands page will give you a full, alphabetical list of available commands. This will include a brief description of what the command does, and how you can use it. You can click on each command to find out further information about it. 
 
-## Getting Started
+:::warning
+The individual command information hasn't been set up yet but will be in the future. For now, you can do `sb!help <COMMAND>` for more information about a command.
+:::
 
-Get started by **creating a new site**.
+## Setting Up StenBot
+This is going to have a couple of pages just explaining how you can set up StenBot on your own Discord server. Mainly for beginners. It goes into depth on the configuration side of the bot and how to use all the configuration commands. 
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+# Key
+:::info
+Information and notes will be displayed in blue boxes like this.
+:::
 
-### What you'll need
+:::tip
+Tips and tricks will be displayed in green boxes like this.
+:::
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+:::warning
+Warnings will be displayed in orange boxes like this 
+:::
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+:::danger
+Well known bugs, deprecated/globally disabled modules will be displayed in red boxes like this.
+:::

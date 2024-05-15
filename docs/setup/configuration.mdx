@@ -1,0 +1,159 @@
+---
+id: configuration
+title: Server Configuration
+description: StenBot requires some configuration to make it perfect to use on your server.
+---
+
+# Lets Start
+
+First, we need to see what our servers configuration is set to. To view this,  do the command `sb!config` This will return an embedded message with our current server configuration. 
+
+:::warning
+Make sure you have embedded messages enabled. Or when attempting to use commands, you will receive an error telling you to enable them.
+:::
+
+:::warning
+To use configuration commands, you will need to be the **Server Owner** or have the **Administrator** permission.
+:::
+
+## Resetting Your Config
+
+:::danger
+This action is **IRREVERSIBLE** and there is **NO** backup whatsoever. 
+:::
+
+If you've decided that you don't like the current config or want to start from the beginning, you can use the command `sb!config-reset` to reset your config to the default one. You will be prompted with a confirmation message to ensure that you would like to reset your config, just reply with `Yes`.
+
+## Gatekeeper Configuration
+
+Gatekeeper is a server setting that can send messages to a specific channel when a user joins and leaves. It is divided into two sections, welcome and leave. We will cover both the welcomer part but the leave part is the exact same but just replace **"welcome"** with **"leave"** in any command.
+
+To start off, we will first need to enable it. You can do this by running the command `sb!config-gatekeeper welcome enable`
+
+:::info
+To disable welcomer you can use the same command but instead change **enable** to **disable**. 
+:::
+
+Lets take a look at the first setting we can configure for welcomer. Which is the welcomer channel. Without this setting configured, our welcomer will not send a message - it will also not send a message and give you an error if the channel that was set is no longer valid. To set a channel, you can use the command `sb!config-gateekeper welcome channel [#channel]` and replace **[#channel]** with a channel of your choice by mentioning said channel.
+
+:::info
+To test that the welcomer configuration works at any time, we can do `sb!config-gateekeeper welcome test`
+This will run your welcomer configuration, and send a fake welcomer message to the set channel. 
+:::
+
+Since we have no welcomer message set, it will send the default one. This brings us onto the next welcomer setting we can change: the welcomer message. To do this we run the command `sb!config-gatekeeper welcome message [message]`, replacing **[message]** with the custom message we want.
+
+There are a few placeholders we can use in our welcomer message however, to make it perfect. Just include these in your configuration message, and when someone joins, the placeholders will be replaced by what they represent.
+
+* `{user}` - This will show the user's name and tag. Eg. `Stentorian#9524`
+* `{usermention}` - This will mention the user. Eg. `@Stentorian`
+* `{username}` - This is the user's name without the tag. Eg. `Stentorian`
+* `{usertag}` - This will show as the user's tag. Eg. `9524`
+* `{server}` - This will show the servers name. Eg. `Sten's Abode`
+* `{date}` - This will show the date the user joined. Eg. `Sep, 17 2020`
+* `{time}` - This will show the time the user joined. Eg. `10:57:30 AM`
+* `{memberCount}` - This will show the position in the server's member count that the user is. Eg. `30`
+* `{userCount}` - This will show the position in the server's member count that the user is (not counting bots). Eg. `27` 
+
+Once again, we can do the welcomer test command to see what it looks like. If we ever want to change the message, we can rerun this command, and if we include nothing, it will reset back to the default.
+
+## User-join Configuration
+
+When users join your server you can set something to happen. This setting allows you to add roles and change the nickname of the user that joins, when they join. However, firstly we'll have to enable the module.`sb!config-userjoin enable`
+
+Once it is enabled, we can now continue to use the other configuration commands. If we wanted to give the user a role when they join, we can do that by running the command`sb!config-userjoin role [@role]`This will add the tagged role to the user that joins your server. If you do not specify a role, it will disable auto-role. 
+
+Secondly, we can change the nicknames of users who join our server. Simply run the command. `sb!config-userjoin name [name]` This will change the nickname of every user that joins your server. If you do not specify a name, it will disable the option.
+
+## Moderation Configuration
+
+We want our server to be clean and tidy. And to do that, StenBot comes equipped with many moderation & administrator commands, and in particular staff settings. There is no need to enable this, as most staff commands will always be enabled. But no one will be able to use the commands until a staff role is defined. To set the staff role, we can run the command.`sb!config-moderation role [@role]`
+
+Next, we have to decide if we want **link blocker** enabled. By default this is disabled, and if any links including discord invites are sent in chats the bot has access to, they will be deleted. To enable or disable we can run this command. `sb!config-moderation linkblock enable`
+
+The next setting that we can configure is our word filter. There is no need to enable/disable this as if there are no words in the filter, it wont do anything. When a word in the filter list is sent in a channel the bot has access to, that message will be deleted and another message will be sent warning the user not to use them words. To add a word to the filter, simply run the following command: `sb!config-moderation filter add [word]`
+
+But, our minds change, and if we want to remove a word from the filter we can with one simple command: `sb!config-moderation filter remove [word]`
+
+We can also clear the filter by doing the command `sb!config-moderation filter clear`
+
+## Logging Configuration
+
+One of the very most useful things in a bot to have is logging. And logging is important, it puts all information in a single place  for us to view and shows us whats happened when, where and sometimes why. StenBot comes equipped with all this great stuff, but we'll need to enable ~~~~it to use it. Use the following command to do this.`sb!config-log enable`
+
+That still wont allow us to begin logging however. We will need to set a logging channel, accessible by the bot. We can use this command to do this. `sb!config-log channel [#channel]`
+
+This will make logging start, and post to the set channel. But there's more. Logging has three levels - **Low**, **Medium** and **High**. These determine how much  you want StenBot to log. Here is a list of each level and what they log. By **default** it is set to medium.
+
+**Low Level Logging**
+
+* Channel Create
+* Channel Delete
+* Member Joined
+* Member Left
+* Member Banned
+* Member Unbanned
+* Member Kicked
+* Member Muted \(Including tempmute\)
+* Member Unmuted
+* Message Deleted
+* Message Edited
+* Messages Purged \(including filtered\)
+
+**Medium Level Logging**
+
+* Channel Create
+* Channel Delete
+* Member Joined
+* Member Left
+* Member Banned
+* Member Unbanned
+* Member Kicked
+* Member Muted \(Including tempmute\)
+* Member Unmuted
+* Message Deleted
+* Message Edited
+* Messages Purged \(including filtered\)
+* Role Created
+* Role Deleted
+
+**High Level Logging**
+
+* Channel Create
+* Channel Delete
+* Member Joined
+* Member Left
+* Member Banned
+* Member Unbanned
+* Member Kicked
+* Member Muted \(Including tempmute\)
+* Member Unmuted
+* Message Deleted
+* Message Edited
+* Messages Purged \(including filtered\)
+* Role Create
+* Role Delete
+* Channel Updated \(Name, topic, ect\)
+* Role Updated \(Name, color, ect\)
+* Member Nickname Changed
+* Member Role Added
+* Member Role Removed
+
+To set which level we want our server to be logged at, we can run a simple command. `sb!config-log level [low|medium|high]`
+
+Just one more feature to touch up on. You can also add a channel filter to stop things like admin channels from being logged for message delete/updates. In order to do this, use the command `sb!config-log ignore [add|remove|clear] #CHANNEL`. If a channel is deleted that is on the list, it will automatically be deleted from the ignore list. 
+
+:::info
+Now would be a good time to review your server configuration and check if its all okay. You can always go back and change it. Remember to view your setup you can do `sb!config`
+:::
+
+## Tickets Configuration
+
+Tickets are a fantastic addition to your discord server,  and are a great and efficient way to help and support people. With the StenBot ticket system, when a ticket is created it will create a channel with only users with the staff role and the ticket **author** \(creator\) able to view it. But first, we need to enable it! You can use this command.`sb!config-tickets enable`
+
+Once you've done that, you need to look back and check if you set a **staff role** if not, tickets will still not be able to be used. Tickets are pretty much done, however if you really want to, you can set the message sent in the ticket channel when a ticket is made.`sb!config-tickets message [message]`
+
+For this message, some placeholders are available for use.
+
+* `{user}` = A mention of the user who created the ticket
+* `{reason}` = The reason the ticket was made
