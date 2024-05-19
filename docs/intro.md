@@ -5,6 +5,10 @@ title: Home Page
 description: StenBot Wiki
 ---
 
+<head>
+  <title> Documentation | StenBot </title>
+</head>
+
 # Welcome to the StenBot Docs/Wiki!
 StenBot is a public multifunctional Discord bot that has features like moderation, ticketing and more! 
 This documentation provides information on each module/command, including the description, usage and examples. 
