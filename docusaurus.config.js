@@ -97,12 +97,6 @@ const config = {
         respectPrefersColorScheme: true,
       },
       footer: {
-        logo: {
-          src: "img/logo.png",
-          alt: "StenBot Logo",
-          height: "64px",
-          width: "64px"
-        },
         style: 'dark',
         links: [
           {
@@ -142,6 +136,11 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
+      metadata: [
+        {name: 'og:site_name', content: 'StenBot'},
+        {name: 'og:image', content: 'https://stenbot.benwhybrow.com/img/logo.png'},
+        {name: 'og:type', content: 'website'},
+      ]
     }),
 };
 

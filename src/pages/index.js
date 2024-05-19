@@ -22,7 +22,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--md"
-            to="/docs/setup/inviting" style={{ fontSize: '26px' }}
+            to="https://sbinvite.benwhybrow.com" style={{ fontSize: '26px' }}
           >Invite StenBot</Link>
           <Link
             style={{ paddingTop: '10px', margin: '15px' }}
@@ -41,11 +41,8 @@ function HomepageHeader() {
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`Home`}
-      description="Home">
+    <Layout title="Home" description="StenBot is a public multifunctional Discord bot that has features like moderation, ticketing and more!">
       <HomepageHeader />
       <main>
         <HomepageWhat />
