@@ -92,16 +92,18 @@ In order for the bot to communicate with Discord, we need to setup a bot applica
 Whilst you're at it, invite the bot to a test server (or your own server) so that it's ready to use once we set things up! Follow [this guide](https://discordjs.guide/preparations/adding-your-bot-to-servers.html) for further instructions. 
 
 ## Setting up the Bot
+This guide applies to setting up the bot on an Ubuntu machine. If you're using a different OS, the only difference will be the commands. However, the bot is solely designed to run on Ubuntu, so it's recommended to use that.
+
 ### Getting the Code from GitHub
 The first thing we need to do is to get the code for StenBot from GitHub. We can do this using a piece of software called Git. Git usually comes pre-installed on most Linux machines, but if that's not the case, you can install it using the software package manager for the system. On an Ubuntu machine, that's just running `sudo apt install git -y`. 
 
 Once Git is set up, we can clone the StenBot repository to the machine. 
-1. Firstly, navigate to the folder that will contain StenBot. Git will automatically create the **StenBot** folder, we just need to pick a location. My preference for the current deployment is the /srv folder. To navigate to this, we can run `cd /srv`. 
+1. Firstly, navigate to the folder that will contain StenBot. Git will automatically create the **stenbot** folder, we just need to pick a location. My preference for the current deployment is the /srv folder. To navigate to this, we can run `cd /srv`. 
 2. Once a folder is chosen, you can clone StenBot by running `git clone https://github.com/bwhybrow23/StenBot`. 
-3. You can now navigate into the directory by running `cd StenBot`.
+3. You can now navigate into the directory by running `cd stenbot`.
 
 ### Installing the relevant packages
-This stage is quite simple. Make sure you're in the folder where the StenBot files are and run `npm install`. This process may take a while, so get a cuppa whilst you're waiting. 
+This stage is quite simple. Make sure you're in the folder where the StenBot files are and run `npm ci`. This process may take a while, so get a cuppa whilst you're waiting. 
 
 ### Editing the config 
 Here, we are going to be utilising everything I said to note down during the prerequisites section.

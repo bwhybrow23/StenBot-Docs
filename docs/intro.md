@@ -14,19 +14,17 @@ StenBot is a public multifunctional Discord bot that has features like moderatio
 This documentation provides information on each module/command, including the description, usage and examples. 
 If you need any additional help, ask in the [Discord Server!](https://discord.benwhybrow.com)
 
-# Navigation
+## Navigation
 On the side bar (to the left) you will see a lot of different pages. This includes a FAQ (Frequently Asked Questions), changelog, commands list and a list of all StenBot's features/modules. 
+
 ## Commands
 The commands page will give you a full, alphabetical list of available commands. This will include a brief description of what the command does, and how you can use it. You can click on each command to find out further information about it. 
 
 :::warning
-The individual command information hasn't been set up yet but will be in the future. For now, you can do `sb!help <COMMAND>` for more information about a command.
+The individual command information hasn't been set up yet but will be in the future. For now, you can do `/help <COMMAND>` for more information about a command.
 :::
 
-## Setting Up StenBot
-This is going to have a couple of pages just explaining how you can set up StenBot on your own Discord server. Mainly for beginners. It goes into depth on the configuration side of the bot and how to use all the configuration commands. 
-
-# Key
+## Key
 :::info
 Information and notes will be displayed in blue boxes like this.
 :::
