@@ -110,6 +110,10 @@ const config = {
                 label: 'Privacy Policy',
                 to: '/privacy',
               },
+              {
+                label: 'Terms of Service',
+                to: '/terms',
+              }
             ],
           },
           {
