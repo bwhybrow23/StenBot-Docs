@@ -65,12 +65,16 @@ const FeatureList = [
 function Feature({ title, icon, description }) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Icon icon={icon} height="188px" width="188px"/>
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+      <div className={clsx('card', 'feature-card')}>
+        <div className="card__body">
+          <div className="text--center" style={{ paddingTop: '0.5rem' }}>
+            <Icon icon={icon} height="96px" width="96px"/>
+          </div>
+          <div className="text--center padding-horiz--md" style={{ paddingBottom: '0.5rem' }}>
+            <Heading as="h3">{title}</Heading>
+            <p className="text-muted">{description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

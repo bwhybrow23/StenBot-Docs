@@ -78,6 +78,7 @@ const config = {
           alt: 'StenBot Icon',
           src: 'img/logo.png',
         },
+        hideOnScroll: true,
         items: [
           {
             type: 'docSidebar',
@@ -104,6 +105,12 @@ const config = {
         defaultMode: 'dark',
         disableSwitch: false,
         respectPrefersColorScheme: true,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
       },
       footer: {
         style: 'dark',
@@ -148,6 +155,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['bash', 'powershell', 'json', 'yaml', 'toml', 'docker'],
       },
       metadata: [
         {name: 'og:site_name', content: 'StenBot'},

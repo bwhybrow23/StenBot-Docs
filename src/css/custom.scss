@@ -1,5 +1,16 @@
 /* You can override the default Infima variables here. */
 :root {
+  /* Typography */
+  --ifm-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --ifm-heading-font-weight: 700;
+  --ifm-font-weight-semibold: 600;
+  --ifm-line-height-base: 1.65;
+
+  /* Layout */
+  --ifm-global-radius: 10px;
+  --ifm-spacing-vertical: 0.8rem;
+
+  /* Color palette (primary already defined below) */
   --ifm-color-primary-lightester: rgb(240, 252, 255);
   --ifm-color-primary-lightest: rgb(224, 248, 254);
   --ifm-color-primary-lighter: rgb(186, 240, 253);
@@ -20,13 +31,27 @@
   --ifm-color-info-lightest: rgb(240, 252, 255);
 
   --ifm-code-font-size: 95%;
+
+  /* Surfaces and accents (will be overridden per-theme below) */
+  --sb-surface: #ffffff;
+  --sb-surface-2: #f6f8fb;
+  --sb-text-muted: #5f6b7a;
+  --sb-border-color: rgba(60, 66, 87, 0.15);
+  --sb-navbar-bg: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme='light'] {
   --docusaurus-highlighted-code-line-bg: var(--ifm-color-primary-lighter);
+  --sb-surface: #ffffff;
+  --sb-surface-2: #f6f8fb;
+  --sb-text-muted: #5f6b7a;
+  --sb-border-color: rgba(60, 66, 87, 0.15);
+  --sb-navbar-bg: rgba(255, 255, 255, 0.65);
 
   .hero--primary {
-    --ifm-hero-background-color: var(--ifm-color-primary-dark);
+    --ifm-hero-background-color: transparent;
+    background: radial-gradient(1200px 400px at 50% -20%, var(--ifm-color-primary-lightest) 0%, transparent 60%),
+                linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, #ffffff 40%);
   }
 
   .hero .hero__subtitle {
@@ -38,9 +63,16 @@
 [data-theme='dark'] {
   --ifm-heading-color: white;
   --docusaurus-highlighted-code-line-bg: var(--ifm-color-primary-darkestest);
+  --sb-surface: #0f141a;
+  --sb-surface-2: #131a22;
+  --sb-text-muted: #9aa4b2;
+  --sb-border-color: rgba(255, 255, 255, 0.08);
+  --sb-navbar-bg: rgba(10, 14, 18, 0.5);
 
   .hero--primary {
-    --ifm-hero-background-color: var(--ifm-color-primary-darkest);
+    --ifm-hero-background-color: transparent;
+    background: radial-gradient(1200px 400px at 50% -20%, rgba(56,210,248,0.15) 0%, transparent 60%),
+                linear-gradient(135deg, #0d1218 0%, #0f141a 40%);
   }
 
   .hero--dark {
@@ -51,6 +83,12 @@
   .hero__subtitle {
     color: white;
   }
+}
+
+.navbar {
+  backdrop-filter: saturate(160%) blur(10px);
+  background: var(--sb-navbar-bg) !important;
+  border-bottom: 1px solid var(--sb-border-color);
 }
 
 .footer {
@@ -151,15 +189,109 @@ html[data-theme='light'] .discord-link {
   }
 }
 
-// Announcement Bar
-html[data-theme='dark'] .content_node_modules--pnpm-\@docusaurus\+theme-classic\@3-2-1_\@types\+react\@18-2-74_react-dom\@18-2-0_react\@18-2-0_typescript\@5-2-2-node_modules-\@docusaurus-theme-classic-lib-theme-AnnouncementBar-Content-styles-module {
-  font-size: larger;
-  color: white;
-  padding: 1rem;
+/* Announcement Bar (use stable partial class selector) */
+[class*='announcementBar_'] {
+  font-size: 1rem;
+  padding: 0.65rem 1rem;
 }
 
-html[data-theme='light'] .content_node_modules--pnpm-\@docusaurus\+theme-classic\@3-2-1_\@types\+react\@18-2-74_react-dom\@18-2-0_react\@18-2-0_typescript\@5-2-2-node_modules-\@docusaurus-theme-classic-lib-theme-AnnouncementBar-Content-styles-module {
-  font-size: larger;
-  color: white;
-  padding: 1rem;
+/* Cards & surfaces */
+.card {
+  background: var(--sb-surface);
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 12px 22px rgba(0,0,0,0.12);
+  border-color: var(--ifm-color-primary-light);
+}
+.card__header, .card__body, .card__footer {
+  background: transparent;
+}
+
+/* Home hero buttons */
+.button.button--secondary {
+  border-radius: calc(var(--ifm-global-radius) + 2px);
+}
+
+/* Code blocks */
+.theme-code-block {
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+}
+.theme-code-block:hover .clean-btn {
+  opacity: 1;
+}
+.theme-code-block .clean-btn {
+  opacity: 0.85;
+}
+
+/* Markdown tables */
+.markdown table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  display: block;
+  max-width: 100%;
+}
+.markdown table thead th {
+  background: var(--sb-surface-2);
+}
+.markdown table tbody tr:nth-child(odd) td {
+  background: color-mix(in srgb, var(--sb-surface-2) 60%, transparent);
+}
+
+/* Sidebar tweaks */
+.theme-doc-sidebar-menu .menu__link--active {
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, transparent);
+}
+
+/* Muted text helper */
+.text-muted { color: var(--sb-text-muted); }
+
+/* Page header (docs/blog/donate) */
+.pageHeader {
+  padding: 2.75rem 0 2.25rem;
+  position: relative;
+}
+.pageHeader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(1200px 400px at 30% -20%, color-mix(in srgb, var(--ifm-color-primary) 18%, transparent), transparent 60%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+.pageHeader h1 {
+  margin: 0 0 .35rem;
+}
+.lead {
+  font-size: 1.1rem;
+}
+
+/* Docs polish */
+.theme-doc-breadcrumbs + div {
+  /* section that contains doc title + content */
+  margin-top: 0.75rem;
+}
+.theme-doc-markdown h1 { margin-bottom: .5rem; }
+.theme-doc-markdown h2, .theme-doc-markdown h3 { scroll-margin-top: 80px; }
+.theme-doc-footer { border-top: 1px solid var(--sb-border-color); }
+.table-of-contents {
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--ifm-global-radius);
+}
+
+/* Blog polish */
+.blogCard {
+  border: 1px solid var(--sb-border-color);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 6px 18px rgba(0,0,0,0.06);
+}
+.blogCard .card__footer { border-top: 1px solid var(--sb-border-color); }

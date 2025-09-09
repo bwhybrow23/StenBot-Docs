@@ -6,7 +6,7 @@ export default function HomepageWhat() {
     <section className={styles.features}>
       <div className="container">
         <h1 style={{ textAlign: 'center' }}>What is StenBot?</h1>
-        <p style={{ textAlign: 'center', fontSize: '26px' }}>
+        <p className="text-muted" style={{ textAlign: 'center', fontSize: '22px', maxWidth: '900px', margin: '0 auto' }}>
           StenBot is a public multifunctional Discord bot that has features such as moderation, ticketing, and more! StenBot allows for you to have control over your server and customise it to how you'd like it to work for you.
         </p>
       </div>

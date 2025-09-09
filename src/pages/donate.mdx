@@ -1,31 +1,53 @@
 ---
   title: Donate
-  description: Supporting StenBot will help pay for the server costs, development time, and more! We really appreciate your support!
+  description: Supporting StenBot helps pay for servers and development time — thank you for your support!
 ---
 
-# Support StenBot
+<section className="container pageHeader">
+  <h1>Support StenBot</h1>
+  <p className="lead text-muted">Your contributions fund servers, development time, and ongoing improvements. Thank you for helping StenBot grow.</p>
+  </section>
 
-Supporting StenBot will help pay for the server costs, development time, and more! We really appreciate your support!
-
-<hr />
-
-## Buy Me a Coffee
-Although I don't drink cofee, you can still buy me one!
-<p>
-    <a href="http://buymeacoff.ee/benwhybrow" target="_blank">
-        <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=benwhybrow&button_colour=5F7FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" alt="BuyMeACoffee"/>
-    </a>
-</p>
-
-<hr />
-## PayPal
-You can also donate via PayPal.
-<form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="hosted_button_id" value="RJSDBW6DS84AC" />
-<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
-</form>
-
-<hr />
-## Non Monetary Support
-If you can't support StenBot financially, you can still help by [inviting StenBot](/docs/setup/inviting) to your server, [following the developer on social media](https://benwhybrow.com), and sharing StenBot with your friends!
+<section className="container">
+  <div className="row" style={{gap: '1rem'}}>
+    <div className="col col-sm">
+      <div className="card" style={{height: '100%'}}>
+        <div className="card__header"><strong>Buy Me a Coffee</strong></div>
+        <div className="card__body">
+          <p className="text-muted">Although I don't drink coffee, you can still buy me one and support development!</p>
+          <p>
+            <a href="http://buymeacoff.ee/benwhybrow" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=benwhybrow&button_colour=5F7FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" alt="Buy Me A Coffee" />
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="col col-sm">
+      <div className="card" style={{height: '100%'}}>
+        <div className="card__header"><strong>PayPal</strong></div>
+        <div className="card__body">
+          <p className="text-muted">Prefer a one-off donation via PayPal? That helps too!</p>
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="RJSDBW6DS84AC" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div className="col col-sm">
+      <div className="card" style={{height: '100%'}}>
+        <div className="card__header"><strong>Non-monetary support</strong></div>
+        <div className="card__body">
+          <ul>
+            <li><a href="/docs/setup/inviting">Invite StenBot to your server</a></li>
+            <li><a href="https://github.com/bwhybrow23/StenBot" target="_blank" rel="noopener noreferrer">Star the GitHub repo</a></li>
+            <li><a href="https://benwhybrow.com" target="_blank" rel="noopener noreferrer">Follow the developer</a></li>
+            <li>Share StenBot with friends and communities</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
