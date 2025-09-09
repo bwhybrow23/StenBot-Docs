@@ -12,6 +12,15 @@ const config = {
   tagline: 'StenBot is a public multifunctional Discord bot that has features like moderation, ticketing and more!',
   favicon: 'img/favicon.ico',
 
+  // Docusaurus Faster
+  future: {
+    v4: true,
+    experimental_faster: {
+      rspackBundler: true,
+      rspackPersistentCache: true,
+    },
+  },
+
   // Set the production url of your site here
   url: 'https://stenbot.benwhybrow.com',
   // Set the /<baseUrl>/ pathname under which your site is served
