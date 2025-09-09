@@ -46,7 +46,7 @@
   --sb-surface-2: #f6f8fb;
   --sb-text-muted: #5f6b7a;
   --sb-border-color: rgba(60, 66, 87, 0.15);
-  --sb-navbar-bg: rgba(255, 255, 255, 0.65);
+  --sb-navbar-bg: rgba(255, 255, 255, 1);
 
   .hero--primary {
     --ifm-hero-background-color: transparent;
@@ -67,7 +67,7 @@
   --sb-surface-2: #131a22;
   --sb-text-muted: #9aa4b2;
   --sb-border-color: rgba(255, 255, 255, 0.08);
-  --sb-navbar-bg: rgba(10, 14, 18, 0.5);
+  --sb-navbar-bg: rgba(10, 14, 18, 1);
 
   .hero--primary {
     --ifm-hero-background-color: transparent;
@@ -86,7 +86,6 @@
 }
 
 .navbar {
-  backdrop-filter: saturate(160%) blur(10px);
   background: var(--sb-navbar-bg) !important;
   border-bottom: 1px solid var(--sb-border-color);
 }
