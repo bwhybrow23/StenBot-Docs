@@ -45,6 +45,11 @@ const config = {
     locales: ['en'],
   },
 
+  // Script for Cloudflare Turnstile (Contact Form)
+  scripts: [
+    { src: "https://challenges.cloudflare.com/turnstile/v0/api.js", async: true, defer: true },
+  ],
+
   // Plugins
   plugins: [
     'docusaurus-plugin-sass',
