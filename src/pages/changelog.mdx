@@ -8,6 +8,25 @@ description: All changes made to StenBot will be documented here.
 All changes made to StenBot will be documented here., following the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format. The changelogs from Version 1.2.0 can also be viewed on the [Discord server](https://discord.benwhybrow.com) in the [#stenbot-changelog](https://discord.com/channels/455782308293771264/624321343420235826) channel.
 
 ***
+## 3.2.8 - 2026-01-25
+### Added
+- Added auto-deploy on release
+### Removed
+- Removed checking for commands in message delete (pre-slash commands)
+### Changed
+- Updated Node and NPM packages to latest versions
+### Fixed
+- Fix issue with bot errors relating to author
+- Fixed bot check in messageDelete & messageUpdate events
+***
+## 3.2.7 - 2025-12-11
+### Added
+- Added error handling to automatically create GitHub issues on the repo
+### Changed
+- Changed the ready function to clientReady following the deprecation in v15 of Discord.js
+- Updated Node and NPM packages to latest version
+- Moved slash commands deployment function to correct folder
+***
 ## 3.2.6 - 2025-06-21
 ### Changed
 - Updated Node and NPM packages to latest versions
