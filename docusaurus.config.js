@@ -94,6 +94,7 @@ const config = {
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/donate', label: 'Donate', position: 'left'},
           {to: '/changelog', label: 'Changelog', position: 'left'},
+          {to: '/contact', label: 'Contact', position: 'left'},
           {
             href: "https://github.com/bwhybrow23",
             position: "right",
@@ -135,6 +136,15 @@ const config = {
                 label: 'Terms of Service',
                 to: '/terms',
               }
+            ],
+          },
+          {
+            title: 'Contact',
+            items: [
+              {
+                label: 'Contact Form',
+                to: '/contact',
+              },
             ],
           },
           {
