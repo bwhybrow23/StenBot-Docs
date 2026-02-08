@@ -4,12 +4,20 @@ import Layout from "@theme/Layout";
 declare global {
   interface Window {
     onTurnstileSuccess?: (token: string) => void;
+    onTurnstileExpired?: () => void;
+    onTurnstileError?: () => void;
     turnstileToken?: string;
+    turnstile?: {
+      render: (container: HTMLElement, options: Record<string, unknown>) => string;
+      remove: (widgetId: string) => void;
+    };
   }
 }
 
 export default function Contact() {
   const startedAt = useRef(Date.now());
+  const turnstileRef = useRef<HTMLDivElement | null>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [errors, setErrors] = useState({
     name: "",
@@ -31,11 +39,51 @@ export default function Contact() {
   const [topic, setTopic] = useState("");
 
   useEffect(() => {
-    window.onTurnstileSuccess = (token: string) => {
+    let intervalId: number | undefined;
+    let cancelled = false;
+
+    const handleSuccess = (token: string) => {
       window.turnstileToken = token;
     };
+    const handleReset = () => {
+      window.turnstileToken = "";
+    };
+
+    const renderTurnstile = () => {
+      if (cancelled || !turnstileRef.current || turnstileWidgetId.current) {
+        return;
+      }
+      if (!window.turnstile) {
+        return;
+      }
+      turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+        sitekey: "0x4AAAAAACYk5ddZi3zkHH_r",
+        callback: handleSuccess,
+        "expired-callback": handleReset,
+        "error-callback": handleReset,
+      });
+    };
+
+    renderTurnstile();
+    intervalId = window.setInterval(() => {
+      if (turnstileWidgetId.current) {
+        if (intervalId) {
+          window.clearInterval(intervalId);
+        }
+        return;
+      }
+      renderTurnstile();
+    }, 500);
+
     return () => {
-      delete window.onTurnstileSuccess;
+      cancelled = true;
+      if (intervalId) {
+        window.clearInterval(intervalId);
+      }
+      if (turnstileWidgetId.current && window.turnstile) {
+        window.turnstile.remove(turnstileWidgetId.current);
+        turnstileWidgetId.current = null;
+      }
     };
   }, []);
 
@@ -58,7 +106,9 @@ export default function Contact() {
     const privacyType = String(formData.get("privacyType") || "").trim();
     const privacyDiscordUsername = String(formData.get("privacyDiscordUsername") || "").trim();
     const privacyDiscordId = String(formData.get("privacyDiscordId") || "").trim();
-    const turnstileToken = window.turnstileToken || "";
+    const turnstileToken = String(
+      window.turnstileToken || formData.get("cf-turnstile-response") || ""
+    ).trim();
     const nextErrors = {
       name: "",
       email: "",
@@ -259,6 +309,7 @@ export default function Contact() {
               aria-describedby={errors.topic ? "contact-topic-error" : "contact-topic-help"}
             >
               <option value="">Select a topic</option>
+              <option value="general">General question or feedback</option>
               <option value="documentation">Report incorrect documentation</option>
               <option value="bot-issue">Report an issue with the bot</option>
               <option value="privacy">Privacy request (UK GDPR)</option>
@@ -492,11 +543,7 @@ export default function Contact() {
             )}
           </div>
 
-          <div
-            className="cf-turnstile"
-            data-sitekey="YOUR_TURNSTILE_SITE_KEY"
-            data-callback="onTurnstileSuccess"
-          />
+          <div className="cf-turnstile" ref={turnstileRef} />
 
           {errors.turnstile && <p className="contact-error">{errors.turnstile}</p>}
 
