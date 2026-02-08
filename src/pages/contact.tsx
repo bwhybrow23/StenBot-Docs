@@ -51,7 +51,7 @@ export default function Contact() {
     const message = String(formData.get("message") || "").trim();
     const docUrl = String(formData.get("docUrl") || "").trim();
     const docDetails = String(formData.get("docDetails") || "").trim();
-    const command = String(formData.get("command") || "").trim();
+    const command = String(formData.get(" command") || "").trim();
     const botDetails = String(formData.get("botDetails") || "").trim();
     const botDiscordUsername = String(formData.get("botDiscordUsername") || "").trim();
     const botDiscordId = String(formData.get("botDiscordId") || "").trim();
@@ -494,7 +494,7 @@ export default function Contact() {
 
           <div
             className="cf-turnstile"
-            data-sitekey="YOUR_TURNSTILE_SITE_KEY"
+            data-sitekey="0x4AAAAAACYk5ddZi3zkHH_r"
             data-callback="onTurnstileSuccess"
           />
 
